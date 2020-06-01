@@ -1,0 +1,605 @@
+1. Chyba kvantovania je:
+  • Je to chyba zosilnenia
+  • Je nezávislá od hodnoty analógového signálu
+  • Je závislá od hodnoty analógového signálu
+  X Maximálny rozdiel medzi hodnotou analógovej veličiny a jej nominálnou hodnotou zodpovedajúcou danému kódovému slovu
+  • Je konštantná pre celý rozsah
+
+70. Signál je:
+  X Výstup snímača, ktorý transformuje informáciu na signál
+  • Kód senzora
+  • Kód snímača
+  X Zvolený parameter fyzikálnej veličiny využitý na prenos
+  • Kód prenosového kanála
+
+2. Chyba multiplikatívna je:
+  • Maximálny rozdiel medzi hodnotou analógovej veličiny a jej nominálnou hodnotou zodpovedajúcou danému kódovému slovu
+  X Je to chyba zosilnenia
+  • Je konštantná pre celý rozsah
+  X Je závislá od hodnoty analógového signálu
+  • Je nezávislá od hodnoty analógového signálu
+
+3. Chyba aditívna je:
+  • Je to chyba zosilnenia
+  X Je nezávislá od hodnoty analógového signálu
+  • Je závislá od hodnoty analógového signálu
+  • Maximálny rozdiel medzi hodnotou analógovej veličiny a jej nominálnou hodnotou zodpovedajúcou danému kódovému slovu
+  X Je konštantná pre celý rozsah
+
+4. Číslicové spracovanie údajov je:
+  • Realizácia analógovo číslicového prevodu
+  X Generovanie výstupných hodnôt aplikovaním nejakej operácie na postupnosť vstupných hodnôt
+  • Zabezpečenie prenosu údajov medzi prostredím a riadiacou jednotkou
+  • Archivácia nameraných parametrov prostredia
+  • Realizácia číslicovo analógového prevodu
+
+62. Požiadavky na mobilne priemyselné počítače sú najmä:
+  X Odolnosť voči poruchám a výpadku napájania
+  X Odolné voči otrasom a vibráciám
+  • Extrémna mechanická c klimatická odolnosť
+  X Majú len jednosmerné napájanie
+  X Odolnosť voči elektromagnetickému žiareniu
+
+63. Požiadavky na špeciálne priemyselné počítače sú najmä:
+  X Odolnosť voči poruchám a výpadku napájania
+  X Odolné voči otrasom a vibráciám
+  X Extrémna mechanická c klimatická odolnosť
+  X Majú len jednosmerné napájanie
+  X Odolnosť voči elektromagnetickému žiareniu
+
+64. Typické aplikácie priemyselných počítačov sú:
+  • Len v technologickej prevádzke
+  • Len v automobiloch
+  X Mobilné
+  X Špeciálne
+  X Stacionárne
+
+5. Požiadavky na stacionárne priemyselné počítače sú najmä:
+  X Odolnosť voči poruchám a výpadku napájania
+  • Odolné voči otrasom a vibráciám
+  • Extrémna mechanická c klimatická odolnosť
+  • Majú len jednosmerné napájanie
+  X Odolnosť voči elektromagnetickému žiareniu
+
+6. Priemyselný počítač je:
+  • Počítač s akumulátorovým napájaním
+  • Počítač typu PC s implementovanou kartou analógovo číslicového prevodníka
+  • Počítač zabezpečujúci riadenie priemyselnej prevádzky
+  • Počítač s trojmodulárnou architektúrou
+  X Počítač, ktorého konštrukčné a technické vyhotovenie umožňuje spoľahlivo fungovať v miestach s negatívnym vplyvom okolitého prostredia
+
+7. Distribúciu a prenos informácií v riadenom systéme špecifikuje vrstva:
+  • Riadenia podniku
+  X Prevádzková
+  • Riadeného systému
+  • Riadenia výroby
+  • Riadenia procesu
+
+67. Spoľahlivosť riadiacich počítačov je dosahovaná:
+  X Diagnostickými hodinami
+  X Galvanickým oddelením komunikačných liniek
+  • Vzdialeným umiestnením od technologickej prevádzky
+  • Operačným systémom reálneho času
+  X Redundanciou vybraných častí systému
+
+73. Meracie členy 2. generácie sú charakterizované:
+  X Súčasťou meracích členov je mikropočítač
+  • Nemajú možnosť zlepšenia metrologických vlastností
+  • Komunikujú prostredníctvom prúdovej slučky
+  X Medzi velínom a meracími členmi sa prenáša minimum údajov
+  • Medzi velínom a meracími členmi sa prenášajú všetky údaje
+
+8. Štvrtá generácia riadiacich systémov je charakterizovaná:
+  X Priestorovou a funkčnou decentralizáciou
+  • Zložitou komunikačnou infraštruktúrou
+  • Priestorovou centralizáciou funkcií
+  X Použitím počítača ako viacslučkového regulátora
+  X Nasadením výpočtovej techniky do riadiacich systémov
+
+9. Architektúry externých komunikácií riadiaceho počítača sú:
+  X Počítačová sieť
+  X Polygonálna
+  • Kanálová
+  X Zbernicová
+  X Stromová
+
+63. Architektúry interných komunikácií riadiaceho počítača sú:
+  • Počítačová sieť
+  • Polygonálna
+  X Kanálová
+  X Zbernicová
+  • Stromová
+
+78. Interface je:
+  • Konektor funkčnej jednotky
+  • Komunikačná časť meracieho kanála
+  • Kabelážny systém počítača
+  X Súhrn pravidiel, metód a prostriedkov prepojenia jednej časti výpočtového systému s ostanými
+  • Mnohobodový spojovací prostriedok
+
+78. Interface špecifikujú vlastnosti:
+  X Operačné
+  X Funkčné
+  X Mechanické
+  • Dynamické
+  X Elektrické
+
+10. Nevýhoda pripojenia prídavných zariadení s centralizovanou štruktúrou s paralelným prenosom je:
+  X Náročná kabeláž
+  • Porucha jedného zariadenia neovplyvňuje ostatné signálové cesty
+  X Vplyv rušivých signálov
+  • Hlásenie mimoriadnych (havarijných) stavov
+  • Vysoká rýchlosť komunikácie
+
+11. Architektúra riadiaceho systému je okrem iného špecifikovaná:
+  • Typom logického riadenia
+  • Optimalizáciou tokov materiálu
+  X Priestorovým usporiadaním funkčných prvkov
+  X Fyzikálnym princípom činnosti
+  X Stupňom koncentrácie základných funkcií
+
+12. Vrstvový model riadiaceho systému (RS) umožňuje špecifikovať pre jednotlivé úrovne RS:
+  X Technické prostriedky príslušnej úrovne RS
+  X Funkcie príslušnej úrovne RS
+  X Dielčie ciele príslušnej úrovne RS
+  • Princípy komunikácie medzi prvkami RS
+
+76. Dekompozíciu riadeného systému (RS) na dielčie podsystémy s cieľovou orientáciou na riadenie špecifikuje vrstva:
+  • Riadenia podniku
+  • Riadenia procesu
+  • Riadenia výroby
+  X Riadeného systému
+  • Prevádzková
+
+13. Primárne spracovanie informácií z meracích členov špecifikuje vrstva:
+  • Riadenia podniku
+  X Riadenia procesu
+  • Riadenia výroby
+  • Riadeného systému
+  • Prevádzková
+
+14. Výhody nasadenia riadiacich mikropočítačov sú:
+  X Realizácia primárneho spracovania signálov na prevádzkovej úrovni
+  X Implementácia inteligentných meracích a akčných členov
+  • Centralizovaná štruktúra s decentralizovaným prepínaním signálových ciest
+  X Program riadené ranžírovanie adresovateľných prvkov funkčnej štruktúry
+  • Decentralizovaná štruktúra s hviezdicovým prenosom informácií
+
+15. Optimalizáciu tokov materiálu vo výrobnom procese špecifikuje vrstva:
+  • Riadeného systému
+  • Prevádzková
+  • Riadenia podniku
+  • Riadenia procesu
+  X Riadenia výroby
+
+66. Získavanie technologických informácií charakterizujúcich riadený prenos špecifikuje vrstva:
+  • Riadeného systému
+  X Prevádzková
+  • Riadenia podniku
+  • Riadenia procesu
+  • Riadenia výroby
+
+16. Priamy regulátor:
+  • je implementovaný na úrovni riadenia procesu
+  X je implementovaný na úrovni technologickej prevádzky
+  • je implementovaný na úrovni riadenia výrobnej linky
+  • je implementovaný na úrovni riadenia výroby
+  X je kompaktný, priamočinný, jednoparametrový
+
+77. Nepriamy regulátor a jeho funkcie:
+  • Sú priestorovo a funkčne centralizované
+  X Umožňujú implementovať zložité algoritmy
+  • Sú priestorovo a funkčne distribuované
+  X Umožňujú ďiaľkovú obsluhu
+  X Sú priestorovo a funkčne decentralizované
+
+65. Priamy regulátor a jeho funkcie sú:
+  X Priestorovo a funkčne centralizované
+  X Kompaktné
+  X Implementované na prevádzkovej úrovni
+  • Priestorovo a funkčne distribuované
+  • Priestorovo a funkčne decentralizované
+  X STANDBY pohotovostný systém
+  X Hierarchický systém
+  • Heuristický systém
+  X WORKBY pohotovostný systém
+  • Systém s jednotkou styku a prostredím
+
+17. Výhoda pripojenia prídavných zariadení s centralizovanou štruktúrou s paralelným prenosom je:
+  X Porucha jedného zariadenia neovplyvňuje ostatné signálové cesty
+  • Vplyv rušivých signálov
+  X Vysoká rýchlosť komunikácie
+  • Náročná kabeláž
+  • Hlásenie mimoriadnych (havarijných) stavov
+
+76. Riadiace počítače sú charakteristické:
+  X Operačným systémom reálneho času
+  X Prídavnými zariadeniami
+  • Operačným systémom voľného času
+  • Veľkou dĺžkou slova
+  X Vysokou spoľahlivosťou
+
+19. Tretia generácia riadiacich systémov je charakterizovaná:
+  • Priestorovou a funkčnou centralizáciou
+  X Unifikovaným prenosovým signálom
+  X Zložitou komunikačnou infraštruktúrou
+  X Použitím univerzálneho regulátora
+  X Priestorovou a funkčnou decentralizáciou
+
+71. Vlhké prostredie je prostredie s vlhkosťou:
+  • > 90%
+  • > 70%
+  • > 50%
+  X > 80%
+  • > 60%
+
+20. Realizáciu základných funkcií spracovania informácií pre potreby riadenia špecifikuje vrstva:
+  • Riadeného systému
+  • Riadenia podniku
+  • Riadenia výroby
+  • Prevádzková
+  X Riadenia procesu
+
+79. Zbernica je:
+  • Konektor funkčnej jednotky
+  • Komunikačná časť meracieho kanála
+  • Kabelážny systém počítača
+  • Súhrn pravidiel, metód a prostriedkov prepojenia jednej časti výpočtového systému s ostanými
+  X Mnohobodový spojovací prostriedok
+
+80. Zbernica MICROBUS je:
+  • Všeobecným prepojením procesora a pamäti
+  X Typická  zbernica 8-bitových mikroprocesorov
+  • Vnútroprocesorová zbernica
+  X Zbernica zavedená pre zjednotenie funkčných vývodov pamäťových modulov
+  • Všeobecným prepojením procesora a vstupno-výstupných portov
+
+21. Zbernica GPIB má celkovo:
+  • 32 bitov
+  X 16 bitov
+  • 12 bitov
+  • 8 bitov
+  • 10 bitov
+
+75. Sekcia riadenia prenosu zbernica GPIB má celkovo:
+  X 5 bitov
+  • 3 bitov
+  • 12 bitov
+  • 8 bitov
+  • 10 bitov
+
+21. Údajová sekcia zbernice GPIB má celkovo:
+  • 32 bitov
+  • 16 bitov
+  • 12 bitov
+  X 8 bitov
+  • 10 bitov
+
+22. Typické stanice priemyselnej počítačovej siete na riadiacej úrovni sú:
+  • Inteligentné meracie a akčné členy
+  • Databázové servery a dátové úložiská výroby
+  • Terminály a stanice vrcholového riadenia výroby
+  X Programovateľné riadiace jednotky
+  X Panely operátorov
+
+23. Programovaný prenos údajov je realizovaný:
+  • Programovým ovládačom iba v rámci portov pamäťovo oddeleného priestoru
+  X V závislosti na realizácii vstupno výstupného priestoru môže byť realizovaný programovým ovládačom v rámci pamäťovo oddeleného aj pamäťovo mapovaného priestoru
+  • Kradnutím cyklov (procesora alebo, pamäti)
+  • Programovým ovládačom iba v rámci pamäťovo mapovaného priestoru
+  • Zmrazením procesora
+
+24. Neprogramovaný prenos údajov je realizovaný:
+  X Zmrazením procesora
+  • Programovým ovládačom iba v rámci portov pamäťovo oddeleného priestoru
+  X Kradnutím cyklov (procesora alebo, pamäti)
+  • Programovým ovládačom iba v rámci pamäťovo mapovaného priestoru
+  • V závislosti na realizácii vstupno výstupného priestoru môže byť realizovaný programovým ovládačom v rámci pamäťovo oddeleného aj pamäťovo mapovaného priestoru
+
+25. Zbernica GPIB pozostáva zo sekcií:
+  X Údajová
+  X Riadenie prenosu
+  • Riadenie merania
+  X Riadenie zbernice
+  • Adresová
+
+18. Zbernica IICDDB je:
+  • Paralélna 16-bitová
+  X Sériová 2-vodičová
+  • Paralélna 32-bitová
+  • Sériová 4-vodičová
+  • Paralélna 8-bitová
+
+26.Typické stanice priemyselnej počítačovej siete na prevádzkovej úrovni sú:
+  • Terminály a stanice vrcholového riadenia výroby
+  • Panely operátorov
+  X Programovateľné riadiace jednotky
+  • Inteligentné meracie a akčné členy
+  • Databázové servery a dátové úložiská výroby
+
+27. Zbernica GPIB je:
+  • Zbernica zavedená pre zjednotenie funkčných vývodov pamäťových modulov
+  • Vnútroprocesorová zbernica
+  • Všeobecným prepojením procesora a pamäti
+  • Všeobecným prepojením procesora a vstupno výstupných portov
+  X Typická zbernica prepojenia meracích jednotiek
+
+28. Zbernica MULTIBUS II je:
+  • Zbernica spoločnosti Intel pre 32 bitové mikropočítače
+  • Zbernica spoločnosti Texas Instrument pre 16 bitové mikropočítače
+  X Zbernicový systém spoločnosti Intel pre 32 bitové mikropočítače
+  • Zbernicový systém spoločnosti Motorola pre 32 bitové mikropočítače
+  • Zbernica spoločnosti Motorola pre 32 bitové mikropočítače
+
+29. Zbernica MULTIBUS je:
+  X Zbernica spoločnosti Intel pre 16 bitové mikropočítače
+  • Zbernica spoločnosti Motorola pre 32 bitové mikropočítače
+  • Zbernica spoločnosti Motorola pre 16 bitové mikropočítače
+  • Zbernica spoločnosti Intel pre 32 bitové mikropočítače
+  • Zbernica spoločnosti Texas Instrument pre 16 bitové mikropočítače
+
+30. Typické stanice priemyselnej počítačovej siete na koordinačnej úrovni sú:
+  X Databázové servery a dátové úložiská výroby
+  • Panely operátorov
+  X Terminály a stanice vrcholového riadenia výroby
+  • Programovateľné riadiace jednotky
+  • Inteligentné meracie a akčné členy
+
+31. Zbernica VME je:
+  • Zbernicový systém spoločnosti Motorola pre 32 bitové mikropočítače
+  • Zbernicový systém spoločnosti Intel pre 32 bitové mikropočítače
+  • Zbernica spoločnosti Intel pre 32 bitové mikropočítače
+  X Zbernica spoločnosti Motorola pre 32 bitové mikropočítače
+  • Zbernica spoločnosti Texas Instrument pre 16 bitové mikropočítače
+
+32. Deterministický režim komunikácie v priemyselnej počítačovej sieti sa vyžaduje na úrovni:
+  X Riadiacej
+  X Prevádzkovej
+  • Koordinačnej
+  • Procesorovej
+  • Systémovej
+
+64. Základné funkcie prídavných zariadení riadiacich počítačov sú:
+  X Výstup stavových slov
+  • Vstup informácií z riadeného prostredia
+  X Výstup informácií do riadeného prostredia
+  X Vstup povelov z vyššej úrovne
+  • Riešenie optimalizačných úloh
+
+33. Základné štandardy štruktúrovanej kabeláže sú:
+  • IEEE 568
+  X ISO 11801
+  X EN 50173
+  • TSB 568
+  X TIA/EIA 568
+
+34. Sekundárna kabeláž štruktúrovanej kabeláže je:
+  • Prepojenie medzi budovami v rámci areálu
+  X Prepojenie medzi poschodiami budovy
+  • Prepojenie medzi aktívnym sieťovým prvkom a prepojovacím panelom dátového rozvádzača
+  • Prepojenie medzi dátovou zásuvkou a počítačom
+  • Prepojenie medzi dátovým rozvádzačom poschodia a jednotlivými miestnosťami
+
+35. Kábel označený SF/UTP je:
+  • Kábel po pároch tienený fóliou a spoločne tienený fóliou
+  • Kábel po pároch tienený fóliou a spoločne tienený opletením
+  • Kábel bez tienenia
+  • Kábel tienený fóliou
+  X Kábel tienený opletením a fóliou
+
+61. Kábel označený F/UTP je:
+  • Kábel po pároch tienený fóliou a spoločne tienený fóliou
+  • Kábel po pároch tienený fóliou a spoločne tienený opletením
+  • Kábel bez tienenia
+  X Kábel tienený fóliou
+  • Kábel tienený opletením a fóliou
+
+36. Hviezdicová architektúra štandardu štruktúrovanej kabeláže predpokladá použitie dátového rozvádzača na úrovni:
+  X budovy
+  X areálu
+  X poschodia
+  • miestnosti
+  • výpočtového strediska
+
+37. Prenosové pásmo kabeláže Cat. 7 je:
+  • 100 MHz
+  • 16 MHz
+  • 200 MHz
+  X 600 MHz
+  • 10 MHz
+
+38. Horizontálna kabeláž štruktúrovanej kabeláže je:
+  • Prepojenie medzi dátovou zásuvkou a počítačom
+  • Prepojenie medzi poschodiami budovy
+  • Prepojenie medzi aktívnym sieťovým prvkom a prepojovacím panelom dátového rozvádzača
+  • Prepojenie medzi budovami v rámci areálu
+  X Prepojenie medzi dátovým rozvádzačom poschodia a jednotlivými miestnosťami
+
+39.Prepojovací kábel štruktúrovanej kabeláže je:
+  X Prepojenie medzi aktívnym sieťovým prvkom a prepojovacím panelom dátového rozvádzača
+  X Prepojenie medzi dátovou zásuvkou a počítačom
+  • Prepojenie medzi dátovým rozvádzačom poschodia a jednotlivými miestnosťami
+  • Prepojenie medzi budovami v rámci areálu
+  • Prepojenie medzi poschodiami budovy
+
+40. Vertikálna kabeláž štruktúrovanej kabeláže je:
+  • Prepojenie medzi budovami v rámci areálu
+  X Prepojenie medzi poschodiami budovy
+  • Prepojenie medzi aktívnym sieťovým prvkom a prepojovacím panelom dátového rozvádzača
+  • Prepojenie medzi dátovou zásuvkou a počítačom
+  • Prepojenie medzi dátovým rozvádzačom poschodia a jednotlivými miestnosťami
+
+41. Prenosové pásmo kabeláže Cat. 5 je:
+  • 600 MHz
+  • 200 MHz
+  • 16 MHz
+  • 10 MHz
+  X 100 MHz
+
+42.  V zmysle štandardu sa predpokladá použitie jedného dátového rozvádzača štruktúrovanej kabeláže na:
+  X 1000 m2
+  • 500 m2
+  • 10 m2
+  • 200 m2
+  • 100 m2
+
+43. Kábel označený S/FTP je:
+  • Kábel po pároch tienený fóliou a spoločne tienený fóliou
+  X Kábel po pároch tienený fóliou a spoločne tienený opletením
+  • Kábel bez tienenia
+  • Kábel tienený opletením a fóliou
+  • Kábel tienený fóliou
+
+44. Primárna kabeláž štruktúrovanej kabeláže je:
+  • Prepojenie medzi dátovým rozvádzačom poschodia a jednotlivými miestnosťami
+  • Prepojenie medzi poschodiami budovy
+  X Prepojenie medzi budovami v rámci areálu
+  • Prepojenie medzi dátovou zásuvkou a počítačom
+  • Prepojenie medzi aktívnym sieťovým prvkom a prepojovacím panelom dátového rozvádzača
+
+45. Prvá definícia štruktúrovanej kabeláže bola uvedená v štandarde:
+  • EN 50173
+  • ISO 11801
+  • IEEE 568
+  X TIA/EIA 568
+  • TSB 568
+
+46. Kábel označený U/UTP je:
+  • Kábel tienený opletením a fóliou
+  X Kábel bez tienenia
+  • Kábel tienený fóliou
+  • Kábel po pároch tienený fóliou a spoločne tienený opletením
+  • Kábel po pároch tienený fóliou a spoločne tienený fóliou
+
+47. Farebný kód (poradie) prvých štyroch párov krútenej dvojlinky štruktúrovanej kabeláže je:
+  • zelená, modrá, oranžová, hnedá
+  • oranžová, zelená, hnedá, modrá
+  X modrá, oranžová, zelená, hnedá
+  • modrá, zelená, oranžová, hnedá
+  • hnedá, modrá, oranžová, zelená
+
+48. Prenosové pásmo kabeláže Cat. 6 je:
+  • 10 MHz
+  • 16 MHz
+  X 250 MHz
+  • 600 MHz
+  • 100 MHz
+
+49.  Terciálna kabeláž štruktúrovanej kabeláže je:
+  • Prepojenie medzi poschodiami budovy
+  • Prepojenie medzi aktívnym sieťovým prvkom a prepojovacím panelom dátového rozvádzača
+  • Prepojenie medzi dátovou zásuvkou a počítačom
+  X Prepojenie medzi dátovým rozvádzačom poschodia a jednotlivými miestnosťami
+  • Prepojenie medzi budovami v rámci areálu
+
+50. Kábel označený F/FTP je:
+  • Kábel tienený opletením a fóliou
+  X Kábel po pároch tienený fóliou a spoločne tienený fóliou
+  • Kábel bez tienenia
+  • Kábel po pároch tienený fóliou a spoločne tienený opletením
+  • Kábel tienený fóliou
+
+51. Prepäťová ochrana triedy C je:
+  X Implementovaná v podružnom rozvádzači
+  • Označovaná ako ochrana prvej úrovne (First Level Protect)
+  • Implementovaná v hlavnom rozvádzači
+  • Implementovaná v zásuvke
+  X Označovaná ako ochrana druhej úrovne (Second Level Protect)
+
+52. Skupina materiálov T3 charakterizuje priestor s nebezpečím výbuchu podľa maximálnej povrchovej teploty:
+  • + 100 0C
+  X + 200 0C
+  • + 300 0C
+  • + 135 0C
+  • + 450 0C
+
+74. Najčastejšie merané fyzikálne veličiny v technologickom prostredí sú:
+  • Hustota
+  X Čas
+  • Prietok
+  X Elektrické veličiny
+  X Neelektrické veličiny
+
+53. Inteligentný merací člen zabezpečuje:
+  X Primárne spracovanie signálu
+  X Základné riadiace funkcie
+  X Autodiagnostiku
+  X Autociachovanie
+  • Dlhodobú archiváciu nameraných údajov
+
+54. Charakteristickou vlastnosťou inteligentného senzora je:
+  X Extrémne malý rozmer
+  X Je citlivý iba na meranú veličinu
+  • Veľký elektrický výkon
+  • Je implementovaný iba vo vonkajšom prostredí
+  • Je bezkontaktný
+
+55. Horúce prostredie je prostredie s teplotou:
+  • Vyššou ako + 5 °C
+  X Vyššou ako + 35 °C
+  • Vyššou ako + 10 °C
+  • Vyššou ako + 25 °C
+  • Vyššou ako + 15 °C
+
+56. Inteligentný merací člen je zostava technických prostriedkov obsahujúca:
+  X Senzor
+  X Vysielač
+  • Pohon
+  • Menič
+  X Riadiaca jednotka vrátane primárneho spracovania signálu
+
+72. Akčný člen je zostava technických prostriedkov obsahujúca:
+  • Senzor
+  • Vysielač
+  X Pohon
+  X Výkonný zosilovač
+  X Riadiaca jednotka
+
+57. Studené prostredie je prostredie s teplotou:
+  X Nižšou ako - 5 °C
+  • Nižšou ako - 15 °C
+  • Nižšou ako + 5 °C
+  • Nižšou ako 0 °C
+  • Nižšou ako - 10 °C
+
+58. Jediný výbuchuodolný prístroj pre Zóny 0, 1, 2 je:
+  • Hermetický uzáver
+  • Olejový uzáver
+  • Prvky so zdokonalenou izoláciou
+  X Prvky iskrovej bezpečnosti
+  • Pieskový uzáver
+
+68. Prepäťová ochrana triedy B:
+  X Implementovaná v hlavnom rozvádzači
+  X Označovaná ako ochrana prvej úrovne (First Level Protect)
+  • Implementovaná v podpružnom rozvádzači
+  • Implementovaná v zásuvke
+  • Označovaná ako ochrana druhej úrovne (Second Level Protect)
+
+59. Výbuchuodolný prístroj triedy B:
+  • Znemožňuje vznik elektrického výboja schopného zapáliť zmes
+  X Zabraňuje prístupu výbušnej zmesi k častiam, ktoré by ju mohli aktivizovať
+  • Sa umiestňuje do nehorľavého prostredia
+  • Znemožňuje rozšírenie prípadného výbuchu do okolia
+  • Sa umiestňuje do nevýbušného prostredia
+
+69. Výbuchuodolný prístroj triedy A:
+  • Znemožňuje vznik elektrického výboja schopného zapáliť zmes
+  • Zabraňuje prístupu výbušnej zmesi k častiam, ktoré by ju mohli aktivizovať
+  • Sa umiestňuje do nehorľavého prostredia
+  X Znemožňuje rozšírenie prípadného výbuchu do okolia
+  • Sa umiestňuje do nevýbušného prostredia
+
+73. Výbuchuodolný prístroj triedy C:
+  • Olejový uzáver
+  X Prvky so zdokonalenou izoláciou
+  X Prvky iskrovej bezpečnosti
+  • Pieskový uzáver
+  • Hermetický uzáver
+
+60. ZÓNA 2 charakterizuje priestor s nebezpečím výbuchu podľa pravdepodobnosti výskytu výbušnej atmosféry:
+  • desiatky hodín za rok pri bežnej prevádzke
+  • nepretržitá prítomnosť plynov
+  • tisícky hodín za rok
+  • stovky hodín za rok
+  X krátkodobá prítomnosť plynov pri poruche
