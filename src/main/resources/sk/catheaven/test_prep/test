@@ -1,0 +1,535 @@
+01. XML je:
+ * Jazyk pre uchovavanie, vymenu a zdielanie informacii 
+ ~ urceny na reprezentaciu webovych stranok
+ ~ reprezentacia struktury webovej sluzby
+ * strukturovany dokument obsahujuci elementy a atributy
+ ~ transportny protokol vyuzivany v sietovych sluzbach
+ * case-sensitive
+
+02. Spravne definovany xml element:
+ ~ Moze obsahovat lubovolne znaky, pricom je umiestneny do tagov '<' '>'
+ * Umoznuje vnaranie elementov
+ ~ nemusi obsahovat ukoncovaci tag ale musi mat zaciatocny tag
+ * moze obsahovat lubovolne mnozstvo atributov
+ ~ neumoznuje pouzit rezervovane znaky ako napriklad '<'
+ ~ pouziva na definovanie atributov specialnu sekciu CDATA
+
+03. Document Type Definition:
+ ~ je dokument, specifikujuci korektne pouzitie webovych sluzieb
+ ~ je suhrn pravidiel pouzitia REST sluzby
+ ~ popisuje korektne deklarovanie WSDL dopytov
+ ~ sa vyuziva na spracovanie REST odpovedi
+ * definuje format XML dokumentu
+
+04. Spravne deklarovane elementy podla Document Type Definition su:
+ ~ <DOCTYPE root[]>
+ ~ <!Element osoba(#PCDATA)>
+ ~ <!ELEMENT x(*#PCDATA)>
+ ~ <!ELEMENT a(b?,c, (d,e)*)> 
+ * <!ELEMENT element((a|#PCDATA)+)>
+
+05. Priklad zapisu abcd:id="123123" moze specifikovat:
+ * xml element
+ ~ odpoved REST dopytu
+ ~ WSDL atribut funkcie
+ * xml schemu
+ ~ zapis biznis rozhrania pomocou SOA principov
+
+06. Document Object Model (DOM):
+ * spracuva dokument ako celok
+ ~ spracuva dokument po castiach
+ ~ vytvara z textoveho dokumentu XML elementy
+ ~ je obmedzeny na citanie vstupneho dokumentu
+ * vytvara strom z XML dokumentu
+ ~ generuje strukturovany WSDL subor
+ ~ vyuziva sa na detekciu spravnosti XML suboru
+
+07. Simple API for XML (SAX): 
+ * jedna sa o push model, ktory z obdrzanych informacii vytvara kod
+ ~ spracuva dokument ako celok
+ * spracuva dokument po castiach
+ ~ je vhodny na spracovanie malych suborov
+ ~ je obmedzeny na citanie vstupneho dokumentu
+ ~ jedna sa o pull model, ktory si postupne ziskava informacie z XML dokumentu
+ 
+08. Streaming API for XML (STAX):
+ ~ jedna sa o push model, ktory z obdrzanych informacii vytvara kod
+ * jedna sa o pull model, ktory si postupne ziskava informacie z XML dokumentu
+ ~ spracuva dokument ako celok, preto je vhodny na male dokumenty
+ * spracuva dokument po castiach
+
+09. JSON:
+ ~ jedna sa o modifikovanu verziu XML dokumentu
+ * definuje format na vymenu dat
+ * je nahraditelny formatom XML, to plati aj naopak
+ ~ je flexibilny kvoli obsahu velkeho mnozstva datovych typov
+ * popisuje data v hierarchickej strukture
+ 
+10. Biznis proces: 
+ ~ je diagram opisujuci tranformaciu vstupov na vystupne hodnoty
+ ~ popisuje vykonavanie programu s cielom naplnenia poziadaviek definovanych vo vstupnych suboroch
+ * retazi aktivity na dosiahnutie biznis ciela
+ ~ opisuje fungovanie podniku
+
+11. Bussines Process Model (BPM):
+ * je standard na modelovanie biznis procesov
+ ~ je zauzivany typ diagramu pre komunikaciu vyvojarov s manazermi
+ ~ definuje hlavny model pouzivany pre vyvoj projektu v ramci jedneho podniku
+ ~ vyuziva XML alebo JSON na opisanie krokov biznis procesu
+ ~ je notacia na definovanie biznis procesov
+
+12. Biznis procesy:
+ * je mozne zakreslit pomocou BPMN notacie
+ ~ sluzia ako detailny prehlad pre implementaciu
+ ~ jasne zobrazuju vstupy a vystupy krokov
+ ~ umoznuju generovanie programovacieho kodu pomocou BPEL nastroja
+
+13. BPMN:
+ ~ je rozsirenie jazyka XML o graficke prvky
+ * abstrahuje proces pre ulahcenie komunikacie so zakaznikom
+ * podporuje zobrazenie udalosti ako aktivit a plaveckych drah ako roli
+ ~ podrobne zobrazuje vykonanie nejakej udalosti v procese
+ ~ zobrazuje komunikaciu modulov programu v ramci biznis procesu
+ 
+14. Elementy BPMN: 
+ * obsahuju brany na umoznenie alternativnych tokov vykonania procesu
+ ~ zobrazuju vykonavanie aktivit v ramci procesov pomocou plaveckych drah
+ ~ generuju REST dopyty a nasledne spracuvaju odpovede
+ ~ popisuju, ako prave jedna rola manipuluje s aktivami podniku v ramci biznis procesu
+
+15. Architektura informacneho systemu:
+ ~ je lahko modifikovatelna a preto vhodna na iterativny dizajn softverovych systemov
+ * hierarchicky popisuje strukturu systemu a zobrazuje elementy a vztahy medzi nimi
+ ~ umoznuje efektivne doplnanie softverovych prvkov do softverovej architektury
+ * dolezite prvky dobrej architektury su flexibilita, stabilita a robustnost
+
+16. Hlavne principy architektury orientovanej na sluzby (SOA) su:
+ ~ Robustnost
+ * Flexibilita
+ * Interoperabilita
+ ~ Rychlost
+ * Znovupouzitelnost
+ ~ Jednoduchost pouzitia
+ ~ Efektivnost komunikacie
+ 
+17. Pre architekturu orientovanu na sluzby je dolezite:
+ ~ poznat implementaciu sluzieb na ich efektivne vyuzitie
+ ~ implementovat zakladne mechanizmy pre splnenie ulohy. Programator nasledne urci, akym sposobom sa dane mechanizmy pouziju na dosiahnutie ciela ulohy.
+ ~ implementovat sluzby tak, aby boli vzajomne poprepajane. Volanie jednej sluzby potom znamena spustenie vsetkych sluzieb, ktore s volanou sluzbou suvisia.
+ * nezavislost sluzby na platforme ci programovacom jazyku
+ * konzistentne spravanie sluzieb nezavisle na pocte volani
+
+18. Standardy pre webove sluzby:
+ ~ nie su jasne definovane
+ * patri medzi ne WSDL
+ ~ sa daju dohladat v UDDI, ktory obsahuje zoznam podporovanych standardov
+ * patri medzi ne SOAP
+ * vyuzivaju internet ako komunikacny prostriedok
+
+19. Universal Description, Discovery and Integration (UDDI):
+ * flexibilny adresar webovych sluzieb
+ ~ obsahuje zoznam standardov webovych sluzieb
+ ~ sluzby su opisane pomocou URI a dostupne pomocou REST
+ ~ transportny protokol, ktory sa pouziva na komunikaciu s webovymi sluzbami
+ * sluzby su opisane pomocou WSDL a dostupne pomocou SOAP
+ 
+20. SOA principy:
+ * poskytuju funkcionalitu pomocou rozhrani, ktore su oddelene od implementacie
+ ~ poskytuju raw data, ktore si konzument spracuje podla vlastnej potreby
+ ~ umoznuju konzumentovi sluzby prisposobenie implementacie sluzby podla jeho potreby
+ ~ na vyuzitie webovej sluzby je nutne sa registrovat v zozname konzumentov sluzby
+ * umoznuju synchronne aj asynchronne vyuzivanie webovych sluzieb
+ 
+21. SOA pristup nie je vhodny ak:
+ ~ je cielovy projekt rozsahovo velmi velky
+ * je potrebna spolahlivost vo vykone v realnom case
+ * nie su potrebne zmeny v systeme a pevne vazby nepredstavuju problem
+ ~ sa vyuziva velmi malo webovych sluzieb
+ ~ sa vyzaduje kompozicia webovych sluzieb
+
+22. Webova sluzba je:
+ ~ proces automatizacie binzis procesov
+ ~ sietovy protokol vyuzivajuci HTTP a XML
+ * distribuovana softverova aplikacia
+ ~ zalozena na komunikacii pomocou JSON sprav
+ ~ rychly sposob vymeny informacii medzi poskytovatelom sluzby a konzumentom
+ ~ akakolvek sluzba realizovana pomocou REST alebo WSDL dopytu
+
+23. Representational State Tranfser (REST) je:
+ ~ specificka reprezentacia SOA sluzby
+ * alternativa k webovym sluzbam
+ ~ sietovy protokol realizovany pomocou XML
+ * architektonicky styl so sposobom odkazovania sa na zdroje pomocou URI dopytov
+ * realizovatelny pomocou lubovolneho formatu (XML, JSON, pdf, jpeg, ...)
+
+24. Vyhody REST: 
+ * podobne ako SOA sa zameriava na co najmensiu previazanost
+ ~ sluzby maju zarucenu dostupnost
+ ~ standardizovane adresovanie zdrojov pomocou HTTP
+ * poziadavky nedefinuju stav a su nezavisle od ostatnych
+ ~ kazdy zdroj ma jeden unikatny URI identifikator
+
+25. REST poziadavky maju definovane parametre:
+ ~ vo WSDL dokumente
+ * v URI
+ * v tele poziadavky
+ ~ v sprave, ktora sa posiela separatne pred samotnou poziadavkou
+ ~ neumoznuju definovanie parametrov, je nutne vyuzit specialny REST dopyt
+ ~ v XML dokumente s pevne stanovenou strukturou
+
+26. Pouzitie webovych sluzieb a REST:
+ ~ webove sluzby a REST su vzdy rovnako spolahlive v dostupnosti
+ * webove sluzby pracuju nad identifikovanym objektom
+ ~ REST sluzby posielaju objekt pomocou URI a nasledne posielaju poziadavku
+ * v pripade REST sluzieb je brana do uvahy mozna nedostupnost zdrojov
+ * zavisi od pripadu pouzitia
+ ~ REST podporuje oproti webovym sluzbam kompoziciu sluzieb
+ ~ maju pevne definovane standardy
+
+27. Enterprise Service Bus (ESB) ponuka:
+ ~ vzajomne prepojenie komponentov pomocou API (peer-to-peer spojenie)
+ * flexibilna prepojovacia struktura pre integraciu aplikacii a sluzieb
+ ~ komplexny format dat, ktory je vopred dohodnuty
+ * data su v jednoduchom formate
+ * fyzicke presuvanie komponentov neovplyvnuje zvysok siete
+ * konverziu protokolov medzi jednotlivymi sluzbami
+
+28. Ulohou Enterprise Service Bus (ESB) je:
+ ~ kontrolovat konzistenciu posielanych dat
+ ~ posielane data zhromazdovat a posielat po celkoch
+ * konvertovat protokoly pripojenych sluzieb
+ * tranfsormovat data do roznych formatov
+ * riadit posielanie dat pomocou udalosti
+ * smerovat data medzi jednotlivymi sluzbami
+ ~ poskytnut sifrovanie dat za ucelom zvysenej bezpecnosti
+ ~ urychlit sposob komunikacie sluzieb
+ 
+29. Enterprise Service Bus (ESB) a sluzby: 
+ * na zapojenie novej sluzby potrebujeme vytvorit modul
+ ~ na zapojenie novej sluzby je treba vytvorit ESB protokol
+ ~ vymena sluzby zahrna nahradenie WSDL mapovaneho v module
+ ~ vymena sluzby zahrna definovanie noveho ESB modulu
+ ~ pri vymene sluzby je nutne prisposobit implementaciu ostatnych modulov
+
+30. Orchestracia vs choreografia:
+ ~ Orchestracia nezavisi na centralnom procese
+ * choreografia urcuje, ze vsetky zucastnene sluzby musia vediet o biznis procese
+ * orchestracia ma jasne definovane operacie a poradie sluzieb
+ ~ pri orchestracii su zucastnene strany informovane o biznis procese
+ * orchestracia umoznuje zistit zodpovednost za vykonanie celeho biznis procesu
+
+31. WSDL: 
+ ~ je protokol, ktroy opisuje sposob komunikacie konzumenta a webovej sluzby
+ * XML dokument opisujuci rozhranie webovej sluzby
+ * opisuje datove typy, protokol komunikacie alebo rozhrania verejnych metod webovej sluzby
+ ~ opisuje vnutornu implementaciu webovej sluzby, sluzi ako dokumentacia
+ ~ jedna sa o REST sluzbu na ziskanie zoznamu existujucich SOAP webovych sluzieb
+ 
+32. WSDL obsahuje nasledovne elementy:
+ * types
+ * messages
+ * portType
+ * binding
+ ~ references
+ ~ serviceType
+ ~ method
+ ~ protocolType
+
+61.  Element <binding> v jazyku WSDL definuje:
+ * formát správy a detaily protokolu pre každý port
+ ~ dátové elementy operácie spolu s ich väzbami
+ ~ väzby medzi jednotlivými operáciami vykonávanými webovou službou
+ ~ väzby medzi jednotlivými správami posielanými webovými službami
+
+33. WSDL portType definuje nasledovne operacie:
+ * prijatie spravy bez odoslania odpovede
+ * prijatie poziadavky a vratenie odpovede
+ * zaslanie poziadavky a cakanie na odpovede
+ * zaslanie spravy bez cakania na dodpoved
+ ~ prijatie niekolkych sprav a odoslanie jednej odpovede
+ ~ pravidelne odoslanie keepalive odpovede
+
+34. SOAP struktura obsahuje:
+ * korenovy element Envelope
+ ~ korenovy element Root
+ ~ spravu v elemente Message
+ ~ informacie o posielanej sprave v elemente Meta
+ * dodatocne informacie v elemente Header
+ * zdruzuje obsah spravy v jednom Body elemente
+ ~ umoznuje specifikovanie casti spravy vo viacerych Body elementoch
+
+35. Remote Procedure Call (RPC) je:
+ ~ sposob vykonania implementovanej metody odovzdanim jej implementacie vzdialenej sluzbe
+ * vykonanie metody poskytovanej sluzbou pomocou XML dokumentu so specifikovanou sluzbou a parametrami
+ ~ REST pristup k volaniu sluzby
+ * volanie procedury sluzby pomocou protokolu HTTP a metody POST
+ ~ odpovedou tohto volania je URI odkaz referujuci na lokalitu zdroja
+ * jeden zo sposobov integracie systemov
+
+36. Na vytvorenie webovej sluzby je nutne, aby poskytovatel:
+ * implementoval samotnu sluzbu poskytnutu aplikacnym serverom
+ * implementoval SOAP protokol pomocou SOAP serveru
+ ~ implementoval SOAP klientsku aplikaciu, ktora umoznuje volanie webovej sluzby
+ ~ zaregistroval implementovanu sluzbu do verejneho zoznamu UDDI
+
+37. Moznosti integracie systemov su:
+ * zdielana databaza
+ * Remote Procedure Call (RPC)
+ * prenos suborov
+ * posielanie sprav
+ ~ vzajomne napojenie UDDI registrov
+ ~ zdielanie implementacie komunikacnych procedur
+
+38. Vyhody zdielanej databazy pri integracii systemov su: 
+ ~ moznost modifikacie schemy
+ ~ flexibilita pravidiel pristupu
+ * standardizacia pristupu
+ ~ vysoka interoperabilita
+
+39. Vyhody Remote Procedure Call (RPC) pri integracii systemov su: 
+ ~ nie je nutne zasahovat do implementacie
+ ~ dostupnost
+ * konzistencia dat
+ ~ neviazanost na platformu
+ * zapuzdrenie volani do rozhrani
+
+40. Vyhody prenosu suborov pri integracii systemov su: 
+ * lahka vymena pri roznych systemoch
+ * vykonnost nie je vzajomne obmedzovana
+ ~ dostupna integracia na vysokej urovni
+ * moznost planovania prenosu suborov
+
+41. Vyhody posielania sprav pri integracii systemov su: 
+ * modifikovatelnost
+ ~ jednoducha implementacia
+ ~ standardizovany pristup
+ ~ zabezpecena konzistencia dat pomocou prenosovych protokolov	
+ 
+42. Medzi webove sluzby zahrname:
+ ~ zdokumentovane API verejne dostupnych softverov
+ ~ WSDL dokumenty
+ * sluzby vyuzivajuce SOA principy
+ * sluzby vyuzivajuce ROA principy
+ ~ len tie sluzby, ktore su zaregistrovane v UDDI registroch
+
+43. Na vykonanie Remote Procedure Call (RPC) je nutne:
+ ~ poslat ziadost o registraciu na sluzbu a nasledne vykonat SOAP request
+ ~ implementovat a uverejnit pozadovanu funckiu do registra webovych sluzieb a nasledne vykonat volanie sluzby
+ * poslat poziadavku na URL a nasledne SOAP poziadavku
+ ~ vykonat niektoru z metod HTTP na URI zdroj (REST volanie)
+
+44. Klient-server architektura:
+ ~ vyuziva vypocty klientov na agregovanie ich vystupov do spolocnej databazy
+ * podla miery vypoctovej sily na strane klienta rozoznavame tucneho, stredneho a tenkeho klienta
+ ~ server nadvazuje kontakt s klientami za ucelom poskytnutia sluzby
+ ~ pocet klientov servera a typ zariadeni je stanoveny vopred
+
+45. Peer-to-peer architektura:
+ ~ urcuje jeden centralny uzol, ktory spravuje komunikaciu ostatnych uzlov nan pripojenych
+ ~ jedna sa o rozsirenie klient-server achitektury
+ * komunikacia je vykonavana stylom kazdy s kazdym
+ ~ definuje hierarchiu pripojenych uzlov
+ * nevyhodou je nizsia bezpecnost
+
+46. Publisher-subsrciber architektura:
+ * umoznuje neviazanost a nezavislost komponentov
+ * publisher informuje po pripojeni o tom, ake typy udalosti moze publikovat
+ ~ publisher informuje po pripojeni o tom, ake typy udalosti moze prijimat
+ ~ zarucuje dorucenie informacii
+ * sirenie informacii nastava od publisherov k subscriberom
+
+47. Pre architektonicke styly plati:
+ * monoliticka architektura sa zvycajne pouziva v desktop aplikaciach
+ * mikrosluzby sluzia na riesenie problemov. Kazda mikrosluzba je potom urcena pre kazdy problem.
+ ~ previazanost v monolitickych softverovych systemoch je minimalna
+ ~ sprostredkovatel (Broker) vyuziva principy mikrosluzieb na sprostredkovanie SOA volani
+
+48. Vyhody Batch sequential/Pipes and filter spracovania udajov:
+ * filtre su nezavisle
+ ~ podporuje paralelizmus
+ * jednoduche rozdelenie na filtre
+ ~ velmi dobra odozva
+ ~ vhodne na implementaciu sietovych rozhrani
+
+49. Cloud computing je vhodne vyuzit ak:
+ ~ je mozne projekt rychlo zrealizovat a nasadit
+ * je pritomna nachylnost na ludske chyby
+ ~ nie je nutne vyuzivat velke mnozstvo serverov
+ * je predpokladana vysoka narocnost na vypoctove zdroje
+
+50. Web 2.0 sa vyznacuje:
+ ~ pouzivatelia neovplyvnuju obsah webovych stranok
+ * pouzivatelia sa podielaju na obsahu webovych stranok
+ * socialnou interakciou
+ ~ moznostou pristupu k doteraz nepristupnym chranenym databazam
+
+51. Co charakterizuje sluzbu: 
+ * je to prostriedok na uspokojenie nejakej poziadavky
+ ~ je zavisla na platforme
+ ~ je to nehmotny ekvivalent tovaru
+ * je to kus biznis funkcionality
+
+52. Ktore z uvedenych bodov nepatria do fazy cyklu implementacie:
+ ~ prechod na novy system
+ ~ vyvoj systemu
+ * identifikovat pouzivatelske poziadavky
+ * vyvinut detaily systemu
+ ~ nasadenie a testovanie systemu
+ ~ vyskolenie pouzivatelov
+
+53. Expertne systemy:
+ * pracuju v urcitych specifikovanych oblastiach
+ ~ riesia problemy prilis tazke pre ludi - expertov v danej oblasti
+ ~ všetky uvedené možnosti sú správne
+ ~ konkrétny expertný systém možno využiť v ľubovoľnej doménovej oblasti
+ ~ sú založené na procedurálnych programovacích jazykoch
+
+54. Inferenčný mechanizmus v expertných systémoch je
+ ~ metóda organizovania znalostí expertov do zhlukov
+ ~ programové prostredie expertného systému
+ * stratégia použitá na prehľadávanie bázy pravidiel expertného systému
+ ~ stratégia data mining využitá inteligentnými agentami
+ ~ používateľské rozhranie expertného systému
+
+55. Typy metadat:
+ * popisne 
+ * administrativne
+ ~ primarne
+ ~ sekundarne
+ ~ selektivne
+ ~ lokalne
+
+56. Datovy model pre GIS reprezentuje udaje v:
+ ~ crtach
+ * vrstvach
+ * konceptoch
+
+57.  V súčasnej dobe je dôležitým krokom na vytvorenie geopriestorových technológií
+kombinácia geografických informačných systémov s:
+ ~ neurálnymi sieťami
+ * systémami GPS (Global Positioning System)
+ ~ systémami na podporu rozhodovania 
+ ~ expertnými systémami
+ ~ manažérskymi informačnými systémami
+
+58.  Modelovanie v GIS rozdeľuje krajinu na črty, ktorými môžu byť:
+ * oblasti
+ * čiary
+ * body
+ ~ vektory
+
+59. Za spoločný komunikačný prostriedok sveta biznisu a sveta IT možno považovať:
+ * vhodný model biznis procesu
+ ~ vhodný model použitej databázy
+ ~ vhodný model softvérovej architektúry navrhovaného systému
+ ~ vhodný model softvérovej a hardvérovej infraštruktúry
+
+60. SOA sa zakladá na nasledujúcich štandardoch:
+ ~ HTTP, WSDL, XML
+ ~ BPMN, WSDL, UDDI
+ ~ BPMN, WSDL, SOAP
+ ~ HTML, SOAP, WSDL
+ * SOA sa nezakladá na štandardoch, ide o princípy návrhu a realizácie softvérových systémov 
+
+62. SOA neposkytuje integráciu obchodných (biznis) procesov.
+ ~ Ano
+ * Nie
+
+63.  Podniková zbernica služieb (Enterprise Service Bus) umožňuje:
+ * virtualizovať protokol, ktorým sa má so službou komunikovať (t.j. používateľ môže použiť aj iný protokol, než ktorý služba poskytuje) 
+ ~ virtualizovať rozhranie služby (t.j. používateľ služby nemusí pri volaní nutne použiť rozhranie, ktoré služba poskytuje)
+ ~ virtualizovať umiestnenie služby (t.j. používateľ služby nemusí vedieť, kde sa daná služba nachádza)
+
+64.  Vyberte črty servisne orientovanej architektúry:
+ ~ tesná zviazanosť jednotlivých komponentov (služieb)
+ * rozhrania služieb musia byť explicitne opísané
+ * voľná zviazanosť jednotlivých komponentov (služieb)
+ ~ na miere zviazanosti jednotlivých komponentov (služieb) v zásade nezáleží
+
+65. Podniková zbernica služieb umožňuje "separation of concerns" (oddelenie rôznych aspektov/oblastí záujmu pri vývoji). Čo to znamená ?
+ * programátor služby sa môže naplno venovať kódu realizujúcemu tzv. "biznis logiku" služby, pričom otázky týkajúce sa komunikácie tejto služby s partnerskými službami v heterogénnom prostredí rieši podniková zbernica služieb 
+ ~ programátor služby sa môže naplno venovať vývoju služby, musí pritom riešiť tzv. "biznis logiku" služby aj otázky týkajúce sa komunikácie tejto služby s partnerskými službami v heterogénnom prostredí (konverzia protokolov a formátov a podobne), avšak nemusí to robiť naraz v jednom module - v rámci služby môže tieto časti vyvíjať oddelene
+ ~ programátor služby sa môže naplno venovať vývoju kódu, ktorý bude slúžiť na zaistenie komunikácie tejto služby s partnerskými službami v heterogénnom prostredí (t.j. môže riešiť otázky konverzie protokolov a formátov a podobne) 
+
+66.  Medzi hlavné princípy SOA patria:
+ * rozhrania
+ ~ pevné prepojenie
+ * synchronizácia
+ ~ dekompozícia služieb 
+
+67.  Integrácia procesov:
+ ~ zabezpečí sekvenčné vykonanie všetkých zúčastnených procesov 
+ * vykonáva interakcie medzi systémami s cieľom realizácie určených požiadaviek
+ ~ vykonáva interakcie medzi systémami s cieľom vytvoriť pre všetky procesy jednotnú databázu
+ ~ zabezpečí paralelné vykonanie všetkých zúčastnených procesov
+
+68. Enterprise Service Bus dokáže správy presmerovať, ale nie ich obohacovať o ďalšie údaje.
+ ~ Ano
+ * Nie 
+
+69. UML je vykonateľný jazyk opisujúci biznis procesy.
+ ~ Ano
+ * Nie 
+
+70. Ak je informačný systém vyrábaný dvoma organizáciami, pričom jedna z nich je v zahraničí, ide o:
+ * offshoring 
+ ~ outsourcing
+ ~ insourcing
+ ~ konzultačné služby 
+
+71. Ktorý z nasledujúcich zápisov spĺňa syntax XML ?
+ ~ <xMlText>text</xMlText>
+ ~ <!CDATA[ <span>text </span> ]]>
+ * ani jedna z možnosti nie je správna
+ ~ <1auto> Oltcit</1auto>
+ ~ <autor diela>Traja kamaráti</autor diela>
+
+72. Ak chcete overiť, či funkcionalita prenesená z predchádzajúcej verzie softvéru je stále
+bezchybná, použijete:
+ * regresné testovanie
+ ~ testovanie bielou skrinkou
+ ~ testovanie čiernou skrinkou
+ ~ integračné testovanie
+ ~ akceptačné testovanie
+
+73. Validácia softvéru v istom zmysle odpovedá na otázku: "Vytvárame produkt správne?" zatiaľ čo verifikácia softvéru odpovedá na otázku "Vytvárame správny produkt?"
+ ~ Ano
+ * Nie
+
+74. Manažérske informačné systémy kladú dôraz na:
+ ~ plánovanie
+ ~ rozhodnutia
+ * informácie
+
+75. Data mining predstavuje:
+ * vyhľadávanie hodnotných biznis informácií vo veľkých databázach
+ ~ vyhľadávanie hodnotných biznis informácií z rôznych webových stránok
+ ~ žiadna z predchádzajúcich možnost
+
+76. Výhody B2C pre zákazníkov zahrňujú všetky spomenuté možnosti okrem:
+ ~ možnosť nájsť jedinečné položky
+ ~ možnosť nakupovať z domu 24 hodín denne, 7 dní v týždni
+ ~ väčšinou širší výber tovarov ako v kamennom obchode
+ ~ možnosť ľahko porovnávať ceny a vlastnosti
+ * typicky nie je možné poskytnúť prídavnú informáciu, takže neprichádza k zavaleniu zákazníka informáciami 
+
+77. Medzi grafické prvky BPMN nepatria:
+ ~ Aktivity
+ * Autority
+ ~ Artefakty
+ ~ Plavecké dráhy
+ ~ Dátové objekty 
+
+78. Pomocou spojovacích objektov v BPMN sa nespájajú:
+ * artefakty navzájom
+ ~ tokové objekty navzájom
+ ~ tokové objekty s artefaktami 
+
+79. SOA rieši súčasný stav. Keďže biznis sa neustále mení (menia sa obchodné podmienky), SOA nezohľadňuje možné budúce zmeny informačných systémov.
+ ~ ANO
+ * NIE 
+
+80. Čo na rozdiel od iných značkovacích jazykov (napr. HTML) XML povoľuje robiť?
+ ~ vymieňanie informácií prostredníctvom webu
+ * vytváranie nových značiek
+ ~ vkladanie značiek v rôznom poradí bez ohľadu na ukončovacie značky
