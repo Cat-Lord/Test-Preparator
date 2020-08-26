@@ -27,17 +27,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 /**
-	module sk.catheaven.test_prep {
-	   requires javafx.controls;
-	   requires javafx.fxml;
-
-	   opens sk.catheaven.test_prep to javafx.fxml;
-	   exports sk.catheaven.test_prep;
-	}
-	
+ * Main app controller, that manipulates question management.
  * @author catlord
  */
 public class PrimaryController implements Initializable {
+	private int correctlyAnswered;							// keeps track of correctly answered questions
+	private final String incorrectAnswerMultiChoice = "~";
+	private final String correctAnswerMultiChoice = "*";
+	
 	@FXML Button answerButton;
 	@FXML Button nextButton;
 	@FXML Label questionLabel;
@@ -46,14 +43,23 @@ public class PrimaryController implements Initializable {
 	private List<Question> questions;
 	private int currentQuestionIndex = 0;
 	
+	/**
+	 * When user checks for correctness of answer, this method is fired (even though 
+	 * netbeans suggests that this method is not called).
+	 * @throws IOException 
+	 */
     @FXML
     private void answer() throws IOException {
-		questions.get(currentQuestionIndex).check();
+		if(questions.get(currentQuestionIndex).check())
+			correctlyAnswered++;
 		
 		nextButton.setVisible(true);
 		answerButton.setVisible(false);
 	}
 
+	/**
+	 * Loads next question after user checks answer for current one.
+	 */
 	@FXML
 	public void next(){
 		nextButton.setVisible(false);
@@ -62,11 +68,13 @@ public class PrimaryController implements Initializable {
 		
 		questions.get(currentQuestionIndex).reset();		// remove coloring and selections
 		currentQuestionIndex++;
-		//currentQuestionIndex = (int)(Math.random() * questions.size());
+		
 		if(currentQuestionIndex >= questions.size()){
 			questionLabel.setText("END OF QUIZ");
-			
+			// time for test summary
+			System.out.println("Correctly answered " + ((double)correctlyAnswered / (double)questions.size()) );
 		}
+		
 		Question current = questions.get(currentQuestionIndex);
 		questionLabel.setText(current.getQuestion());
 		
@@ -77,6 +85,7 @@ public class PrimaryController implements Initializable {
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		correctlyAnswered = 0;
 		questions = new ArrayList<>();
 	
 		InputStream text;
@@ -102,30 +111,25 @@ public class PrimaryController implements Initializable {
 			
 			// we have new question
 			if(matcher.lookingAt()){
-				System.out.println("New question: " + line);
 				question = line;
 				correctAnswers = new ArrayList<>();
 				incorrectAnswers = new ArrayList<>();
 			}
 			else{
 				if(line.isEmpty()  ||  line.isBlank() ||  line.equals("")){
-					System.out.println("Empty line");
+					System.out.println("Empty question line");
 					if( ! question.isEmpty()){
 						questions.add(new Question(question, correctAnswers, incorrectAnswers));
-						System.out.println("Added " + question + "\n");
 						question = "";
-					}
-					
+					}	
 					continue;
 				}
 				
-				if(line.contains("~")){
-					System.out.println("- Incorrect line: " + line);
+				if(line.contains(incorrectAnswerMultiChoice)){
 					String incLine = line.replaceAll("^[ ]*~[ ]*", "");
 					incorrectAnswers.add(incLine);
 				}
-				else if(line.contains("*")){
-					System.out.println("+ Correct line: " + line);
+				else if(line.contains(correctAnswerMultiChoice)){
 					String cLine = line.replaceAll("^[ ]*\\*[ ]*", "");
 					correctAnswers.add(cLine);
 				}

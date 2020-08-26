@@ -24,7 +24,7 @@ public class Question {
 	private final String question;
 	private final List<String> correct;
 	private final List<String> incorrect;
-	private List<CheckBox> boxes;
+	private final List<CheckBox> boxes;
 	
 	public Question(String question, List<String> correct, List<String> incorrect){
 		this.boxes = new ArrayList<>();
@@ -35,23 +35,28 @@ public class Question {
 		this.initialize();
 	}
 	
-	public void check(){
+	public boolean check(){
 		for(CheckBox box : boxes){
 			String answer = box.getText();
 
 			// if the box is selected, check if it should be selected
 			if(box.isSelected()){
-				if(checkIncorrect(answer) == false)
-					box.setBackground(new Background(new BackgroundFill(Color.valueOf("#ff4444"), CornerRadii.EMPTY, Insets.EMPTY)));		// color red
-				else
+				if(checkIncorrect(answer))
 					box.setBackground(new Background(new BackgroundFill(Color.valueOf("#4dff4d"), CornerRadii.EMPTY, Insets.EMPTY)));		// color green
+				else{
+					box.setBackground(new Background(new BackgroundFill(Color.valueOf("#ff4444"), CornerRadii.EMPTY, Insets.EMPTY)));		// color red
+					return false;
+				}
 			}
 			// else check if an unselected box should be selected
 			else {
-				if(checkCorrect(answer) == false)
+				if(checkCorrect(answer) == false){
 					box.setBackground(new Background(new BackgroundFill(Color.valueOf("#ffc266"), CornerRadii.EMPTY, Insets.EMPTY)));		// only color red, ignore if this part is correctly not selected
+					return false;
+				}
 			}
 		}
+		return true;
 	}
 	
 	public String getQuestion(){
