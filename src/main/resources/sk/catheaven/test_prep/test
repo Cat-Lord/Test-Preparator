@@ -21,7 +21,7 @@
  ~ sa vyuziva na spracovanie REST odpovedi
  * definuje format XML dokumentu
 
-04. Spravne deklarovane elementy podla Document Type Definition su:
+!04. Spravne deklarovane elementy podla Document Type Definition su:
  ~ <DOCTYPE root[]>
  ~ <!Element osoba(#PCDATA)>
  ~ <!ELEMENT x(*#PCDATA)>

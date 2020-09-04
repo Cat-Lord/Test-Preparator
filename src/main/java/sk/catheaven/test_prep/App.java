@@ -8,45 +8,44 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import javafx.stage.FileChooser;
 
 /**
- * JavaFX App
+ * todo: create app communicator
  */
 public class App extends Application {
-    private static Scene scene;
-	private FileChooser chooser;
+	//private QuestionLoader loader;
+	//private Tester tester;
+	private Stage mainWindow;
+	private TestLoader testLoader;
+    private Scene testLoaderScene, testScene, summaryScene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"));
+		mainWindow = stage;
+		
+		initializeApplication();
 		
 		stage.setTitle("Test Prep");
-        stage.setScene(scene);
+        stage.setScene(testLoaderScene);
         stage.show();
-		/*
-		// add an option to choose a file that loads questions file
+    }
+	
+	private void initializeApplication() throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
 		
-		chooser.setTitle("Open file...");
-		File selectedFile = null;
+		testLoader =  new TestLoader();
+		testLoader.setStage(mainWindow);
 		
-		while(selectedFile == null){
-			selectedFile = chooser.showOpenDialog(stage);
-		}
-		*/
-    }
+		fxmlLoader.setController(testLoader);
+		testLoaderScene = new Scene(fxmlLoader.load());
+	}
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
-    }
-
+	private Parent loadFXML(String fxml) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml + ".fxml"));
+		return loader.load();
+	}
+	
     public static void main(String[] args) {
         launch();
     }
-
 }
