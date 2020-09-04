@@ -1,30 +1,17 @@
 package sk.catheaven.test_prep;
 
-import TestUtils.SingleChoiceQuestion;
-import TestUtils.MultiChoiceQuestion;
 import TestUtils.Question;
-import com.sun.javafx.scene.control.skin.Utils;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
-import java.net.URISyntaxException;
+import static java.lang.System.exit;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -43,11 +30,9 @@ import javafx.stage.Stage;
  */
 public class Tester implements Initializable {
 	private Stage stage;
-	private int correctlyAnswered;							// keeps track of correctly answered questions
 
 	@FXML Button answerButton;
 	@FXML Button nextButton;
-	@FXML Button goToMenuButton;
 	
 	@FXML Label questionLabel;
 	@FXML VBox answersBox;
@@ -55,15 +40,29 @@ public class Tester implements Initializable {
 	private final List<Question> questions;
 	private int currentQuestionIndex = 0;
 	
+	// in the summary window keeps track of indices when user browses through 
+	// correctly or incorrectly answered questions
+	private int currentCorrect = 0;
+	private int currentIncorrect = 0;
+
+	// these lists hold indices of correctly/incorrectly answered 
+	// questions to allow their later inspection by the user
+	private final List<Integer> correctlyAnswered;
+	private final List<Integer> incorrectlyAnswered;
+	
 	public Tester(List<Question> questions){
 		this.questions = questions;
-		correctlyAnswered = 0;
+		Collections.shuffle(this.questions);
+		currentQuestionIndex = 0;
+		
+		correctlyAnswered = new ArrayList<>();
+		incorrectlyAnswered = new ArrayList<>();
 	}
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		answerButton.setVisible(false);
-		goToMenuButton.setVisible(false);
+		next();
 	}
 	
 	public void setStage(Stage stage){
@@ -72,14 +71,20 @@ public class Tester implements Initializable {
 	
 	/**
 	 * When user checks for correctness of answer, this method is fired (even though 
-	 * netbeans suggests that this method is not used).
+	 * netbeans suggests that this method is not used). Question is then set to non-
+	 * editable mode to hinder the user of changing their answers.
+	 * According to the result, index of current questions is added into its proper
+	 * list (list of correctly/incorrectly answered questions).
 	 * @throws IOException 
 	 */
     @FXML
     private void answer() throws IOException {
 		if(questions.get(currentQuestionIndex).check())
-			correctlyAnswered++;
+			correctlyAnswered.add(currentQuestionIndex);
+		else
+			incorrectlyAnswered.add(currentQuestionIndex);
 		
+		questions.get(currentQuestionIndex).disableSelection();
 		nextButton.setVisible(true);
 		answerButton.setVisible(false);
 	}
@@ -93,35 +98,29 @@ public class Tester implements Initializable {
 		answerButton.setVisible(true);
 		answersBox.getChildren().clear();
 		
-		questions.get(currentQuestionIndex).reset();		// remove coloring and selections
-		currentQuestionIndex++;
-		
 		if(currentQuestionIndex >= questions.size()){
-			finalizeTest();
-			return;
+			try{
+				finalizeTest();
+				return;
+			}
+			catch(Exception e){
+				e.printStackTrace();
+				exit(1);
+			}
 		}
 		
-		Question current = questions.get(currentQuestionIndex);
+		Question current = questions.get(currentQuestionIndex++);
 		questionLabel.setText(current.getQuestion());
 		current.appendAnswers(answersBox);
 	}
 	
 	// test summary
-	private void finalizeTest(){
-		questionLabel.setText("END OF QUIZ");
-		answersBox.getChildren().clear();
-		answersBox.getChildren().add(new Label(String.format("Correctly answered %.1f\n", ((double)correctlyAnswered / (double)questions.size()))));
-		goToMenuButton.setVisible(true);
-		answerButton.setVisible(false);
-		nextButton.setVisible(false);
-	}
-	
-	public void goToMenu() throws IOException{
-		TestLoader testLoader = new TestLoader();
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
-		loader.setController(testLoader);
+	private void finalizeTest() throws IOException {
+		TestSummary testSummary = new TestSummary(questions, correctlyAnswered, incorrectlyAnswered);
+		testSummary.setStage(this.stage);
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/testSummary.fxml"));
+		loader.setController(testSummary);
 		
-		stage.setTitle("New Test");
-		stage.setScene(loader.load());
+		stage.setScene(new Scene(loader.load()));
 	}
 }

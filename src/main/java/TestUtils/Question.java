@@ -25,6 +25,8 @@ public abstract class Question {
 	protected final String shouldBeSelectedColor = "#ffc266";
 	
 	public abstract void appendAnswers(Pane pane);
+	public abstract void enableSelection();
+	public abstract void disableSelection();
 	public abstract boolean check();
 	public abstract void reset();
 	

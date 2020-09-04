@@ -18,7 +18,6 @@
          <children>
             <Button fx:id="answerButton" onAction="#answer" text="Check Answer" />
             <Button fx:id="nextButton" mnemonicParsing="false" onAction="#next" prefHeight="26.0" prefWidth="110.0" text="Next" />
-            <Button fx:id="goToMenuButton" mnemonicParsing="false" onAction="#goToMenu" prefHeight="64.0" prefWidth="88.0" text="Menu" />
          </children>
       </StackPane>
    </children>

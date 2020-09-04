@@ -109,8 +109,6 @@ public class TestLoader implements Initializable {
 			else{
 				
 				System.out.println("++" + line);
-				
-				
 				// in case of an empty line a question with answers was formed 
 				// or a few empty lines were skipped
 				if(line.isEmpty()  ||  line.isBlank()){
@@ -125,19 +123,8 @@ public class TestLoader implements Initializable {
 							continue;
 						}
 						
-						if(questionLabel.startsWith(Question.singleChoiceQuestionPrefix)){
-							
-							// single choice question must have ONE answer correct
-							if(correctAnswers.isEmpty()){
-								errorLog.add(String.format("Line %d: Single choice question `%s` is supposed to have exactly ONE correct answer, but doesn't", lineCounter, questionLabel));
-								continue;
-							}
-							
-							questions.add(new SingleChoiceQuestion(questionLabel, correctAnswers.get(0), incorrectAnswers));
-						}
-						else
-							questions.add(new MultiChoiceQuestion(questionLabel, correctAnswers, incorrectAnswers));
-	
+						// add a new question to the list OR ignore loaded questions and append to error log
+						addNewQuestion(questionLabel, lineCounter, correctAnswers, incorrectAnswers, errorLog);
 					}
 				}
 				else {	// we have a line with answer (or a corrupted line, which will be ignored)
@@ -162,6 +149,9 @@ public class TestLoader implements Initializable {
 			}
 		}
 		
+		if(haveQuestion)
+			addNewQuestion(questionLabel, lineCounter, correctAnswers, incorrectAnswers, errorLog);
+		
 		// after loading questions, decide, what to do with them (error checking)
 		if(questions.isEmpty()){
 			testInfoLabel.setText("Questions were not properly loaded ! Check input file.");
@@ -174,6 +164,11 @@ public class TestLoader implements Initializable {
 		}
 		else{
 			testInfoLabel.setText("Loaded " + questions.size() + " questions");
+			
+			questions.forEach((q) -> {
+				System.out.println(q.getQuestion());
+			});
+			
 			startTestButton.setDisable(false);
 		}
 	}
@@ -184,6 +179,7 @@ public class TestLoader implements Initializable {
 		startTestButton.setDisable(true);
 		
 		Tester tester = new Tester(questions);
+		tester.setStage(this.stage);				// pass the stage to the tester
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/test.fxml"));
 		loader.setController(tester);
 		
@@ -199,11 +195,26 @@ public class TestLoader implements Initializable {
 		TextArea textArea = new TextArea();
 		textArea.setEditable(false);
 		
-		for(String error : errors){
+		errors.forEach((error) -> {
 			textArea.setText(textArea.getText() + error + "\n");
-		}
-		
+		});
+				
 		errorsBox.getChildren().clear();
 		errorsBox.getChildren().add(textArea);
+	}
+	
+	private void addNewQuestion(String questionLabel, int lineCounter, List<String> correctAnswers, List<String> incorrectAnswers, List<String> errorLog){
+		if(questionLabel.startsWith(Question.singleChoiceQuestionPrefix)){
+							
+			// single choice question must have ONE answer correct
+			if(correctAnswers.isEmpty()){
+				errorLog.add(String.format("Line %d: Single choice question `%s` is supposed to have exactly ONE correct answer, but doesn't", lineCounter, questionLabel));
+				return;
+			}
+
+			questions.add(new SingleChoiceQuestion(questionLabel, correctAnswers.get(0), incorrectAnswers));
+		}
+		else
+			questions.add(new MultiChoiceQuestion(questionLabel, correctAnswers, incorrectAnswers));
 	}
 }

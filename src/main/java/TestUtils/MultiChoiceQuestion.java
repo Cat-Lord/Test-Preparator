@@ -92,6 +92,7 @@ public class MultiChoiceQuestion extends Question {
 		return true;
 	}
 
+	@Override
 	public void reset(){
 		for(Object baseBox : this.answers){
 			CheckBox box = (CheckBox) baseBox;
@@ -106,5 +107,21 @@ public class MultiChoiceQuestion extends Question {
 			if(correctAnswer.equals(answer))
 				return true;
 		return false;
+	}
+
+	@Override
+	public void enableSelection() {
+		for(Object boxBase : answers){
+			CheckBox box = (CheckBox) boxBase;
+			box.setDisable(false);
+		}
+	}
+
+	@Override
+	public void disableSelection() {
+			for(Object boxBase : answers){
+			CheckBox box = (CheckBox) boxBase;
+			box.setDisable(true);
+		}
 	}
 }

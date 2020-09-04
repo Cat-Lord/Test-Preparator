@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="680.0" prefWidth="1018.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TabPane prefHeight="484.0" prefWidth="716.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab text="Test Summary">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="645.0" prefWidth="1018.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="483.0" prefWidth="876.0" spacing="15.0">
+                                 <children>
+                                    <VBox prefHeight="483.0" prefWidth="406.0" spacing="25.0">
+                                       <children>
+                                          <HBox prefHeight="17.0" prefWidth="233.0">
+                                             <children>
+                                                <Label text="Number of Questions: ">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="NOquestionsLabel" text="0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="22.0" prefWidth="233.0">
+                                             <children>
+                                                <Label text="Correctly:">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="NOcorrectLabel" text="0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox prefHeight="13.0" prefWidth="233.0">
+                                             <children>
+                                                <Label text="Mistakes:">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="NOincorrectLabel" text="0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="20.0" top="50.0" />
+                                       </padding>
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                    <Label fx:id="testResultLabel" text="0.0%">
+                                       <font>
+                                          <Font name="System Italic" size="75.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="25.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#restartTest" prefHeight="40.0" text="Restart Test" />
+                                    <Button mnemonicParsing="false" onAction="#goToMenu" prefHeight="40.0" text="Menu" />
+                                 </children>
+                                 <padding>
+                                    <Insets right="30.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Correctly Answered">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="correctQuestionLabel" text="No Correct Questions">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="15.0" top="15.0" />
+                                 </padding>
+                              </Label>
+                              <VBox fx:id="correctBox" prefHeight="546.0" />
+                              <HBox alignment="CENTER" prefHeight="55.0" prefWidth="876.0" spacing="25.0">
+                                 <children>
+                                    <Button fx:id="showPreviousCorrect" disable="true" mnemonicParsing="false" onAction="#showPreviousCorrect" prefHeight="26.0" prefWidth="70.0" text="&lt;" />
+                                    <Button fx:id="showNextCorrectButton" disable="true" mnemonicParsing="false" onAction="#showNextCorrect" prefHeight="26.0" prefWidth="70.0" text="&gt;" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="876.0" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="correctIndexLabel" text="0" />
+                                    <Label text="/" />
+                                    <Label fx:id="correctCountLabel" text="0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Inorrectly Answered">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label fx:id="incorrectQuestionLabel" text="No Incorrect Questions">
+                                 <font>
+                                    <Font size="29.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="15.0" top="15.0" />
+                                 </padding>
+                              </Label>
+                              <VBox fx:id="incorrectBox" prefHeight="546.0" />
+                              <HBox alignment="CENTER" prefHeight="55.0" prefWidth="876.0" spacing="25.0">
+                                 <children>
+                                    <Button fx:id="showPreviousIncorrectButton" disable="true" mnemonicParsing="false" onAction="#showPreviousIncorrect" prefHeight="26.0" prefWidth="70.0" text="&lt;" />
+                                    <Button fx:id="showNextIncorrectButton" disable="true" mnemonicParsing="false" onAction="#showNextIncorrect" prefHeight="26.0" prefWidth="70.0" text="&gt;" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="40.0" prefWidth="716.0" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="incorrectIndexLabel" text="0" />
+                                    <Label text="/" />
+                                    <Label fx:id="incorrectCountLabel" text="0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

@@ -21,7 +21,7 @@ import javafx.scene.paint.Color;
  * @author catlord
  */
 public class SingleChoiceQuestion extends Question {
-	private ToggleGroup toggleGroup;
+	private final ToggleGroup toggleGroup;
 	private final String correct;
 	private final List<String> incorrect;
 	
@@ -31,7 +31,8 @@ public class SingleChoiceQuestion extends Question {
 		this.correct = correct;
 		this.incorrect = incorrect;
 		Collections.shuffle(this.incorrect);		// immediately shuffle incorrect answers, so we get randomized order of answers
-		
+				
+		this.toggleGroup = new ToggleGroup();
 		int inIndex = 0;
 		boolean correctUsed = false;
 		
@@ -111,5 +112,22 @@ public class SingleChoiceQuestion extends Question {
 			button.setBackground(null);
 		}
 		Collections.shuffle(this.answers);
+	}
+	
+	
+	@Override
+	public void enableSelection() {
+		for(Object baseButton : this.answers){
+			RadioButton button = (RadioButton) baseButton;
+			button.setDisable(false);
+		}
+	}
+
+	@Override
+	public void disableSelection() {
+		for(Object baseButton : this.answers){
+			RadioButton button = (RadioButton) baseButton;
+			button.setDisable(true);
+		}
 	}
 }
